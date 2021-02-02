@@ -13,23 +13,56 @@ useEffect(()=>{
       setUsers(data.results)
     } )
   }
+  function sortData(){
+const newData = [...users] 
+newData.sort((a,b) =>a.dob.age-b.dob.age)
+setUsers(newData)
+  }
+  function filterData(event){
+const newData = users.filter((user) => user.dob.age === event.target.value)
+setUsers(newData)
+  }
   return (
     <div className="App">
+      <input type = "text" onChange = {filterData}/> 
+      <button onClick = {sortData} >sort by age</button>
       <table> 
         <thead>
           <tr>
             <th>
               name
             </th>
+            <th>
+              age
+            </th>
+            <th>
+             cell
+            </th>
+            <th>
+             email
+            </th>
+            <th>
+             gender
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Cody</td>
+          {users.map((user) => (
+            <div> 
+             <tr>
+            <td>{user.name.first} {user.name.last}</td>
+       
+            <td>{user.dob.age}</td>
+          
+            <td>{user.cell}</td>
+          
+            <td>{user.email}</td>
+          
+            <td>{user.gender}</td>
           </tr>
-          <tr>
-            <td>{"Cod"}</td>
-          </tr>
+          </div>
+          ) ) }
+         
         </tbody>
       </table>
     </div>

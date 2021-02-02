@@ -30,19 +30,19 @@ setUsers(newData)
         <thead>
           <tr>
             <th>
-              name
+            Name
             </th>
             <th>
-              age
+            Age
             </th>
             <th>
-             cell
+            Phone
             </th>
             <th>
-             email
+             Email
             </th>
             <th>
-             gender
+             Gender
             </th>
           </tr>
         </thead>

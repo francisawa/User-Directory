@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import React,{useState,useEffect} from "react";
+
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
 function App() {
   const [users,setUsers] = useState([])
 useEffect(()=>{
@@ -26,30 +29,30 @@ setUsers(newData)
     <div className="App">
       <input type = "text" onChange = {filterData}/> 
       <button onClick = {sortData} >sort by age</button>
-      <table> 
+      <table  className ="table"> 
         <thead>
           <tr>
-            <th>
+            <th scope="col">
             Name
             </th>
-            <th>
+            <th scope="col">
             Age
             </th>
-            <th>
+            <th scope="col">
             Phone
             </th>
-            <th>
+            <th scope="col">
              Email
             </th>
-            <th>
+            <th scope="col">
              Gender
             </th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map((user, i) => (
             <div> 
-             <tr>
+             <tr><th scope="row">{i+1}</th>
             <td>{user.name.first} {user.name.last}</td>
        
             <td>{user.dob.age}</td>
